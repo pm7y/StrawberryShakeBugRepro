@@ -1,0 +1,43 @@
+schema {
+  query: Query
+}
+
+type Project {
+  manager: CompanyOrNonCompanyPerson
+  salesRepresentative: CompanyOrNonCompanyPerson
+  coordinator: CompanyOrNonCompanyPerson
+  id: ID!
+  name: String!
+}
+
+type CompanyPerson implements Person {
+  organisationUnit: OrganisationUnit!
+  id: ID!
+  name: String
+  email: String
+  company: String
+}
+
+type Query {
+  projectSearch(nameLike: String!): [Project]!
+  project(id: ID): Project
+}
+
+type OrganisationUnit {
+  id: ID!
+  name: String!
+}
+
+interface Person {
+  name: String
+  email: String
+}
+
+type NonCompanyPerson implements Person {
+  id: ID!
+  name: String
+  email: String
+}
+
+union CompanyOrNonCompanyPerson = NonCompanyPerson | CompanyPerson
+

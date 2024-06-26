@@ -1,0 +1,28 @@
+﻿fragment ProjectFragment on Project {
+  id
+  name
+  manager {
+    ... on CompanyPerson { 
+      organisationUnit {
+        id
+      }
+      id
+      name
+      email
+    }
+  }
+  coordinator {
+    ... on CompanyPerson {
+      organisationUnit {
+        id
+      }
+    }
+
+  }
+  salesRepresentative {
+    ... on CompanyPerson {
+      id
+    }
+  }
+
+}

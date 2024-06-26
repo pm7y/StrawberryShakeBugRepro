@@ -1,0 +1,5 @@
+﻿query ProjectQuery($projectId: ID) {
+  project(id: $projectId) {
+    ...ProjectFragment
+  } 
+}

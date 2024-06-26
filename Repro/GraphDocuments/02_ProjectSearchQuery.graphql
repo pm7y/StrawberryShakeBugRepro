@@ -1,0 +1,6 @@
+﻿query ProjectSearchQuery($nameLike: String!) {
+  projectSearch(nameLike: $nameLike) {
+    ...ProjectFragment
+  }
+}
+
